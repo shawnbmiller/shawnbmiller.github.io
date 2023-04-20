@@ -26,6 +26,7 @@ body {
 		var sleeping = false;
 		var previousClientX = -50;
 		var previousClientY = -50;
+	
 
 
 		function SetUpTheWay(event){
@@ -61,11 +62,10 @@ body {
 
 		}
 
-		document.onmousemove = ThisIsTheWay;
-		document.ontouchmove = ThisIsTheWay;
+		document.onpointermove = ThisIsTheWay;
 	</script>
 	<h1>This is the way.</h1>
-	<canvas id="theWay" style="position: absolute; top: 0; left: 0;">
+	<canvas id="theWay" style="position: absolute; top: 0; left: 0;" >
 		
 	</canvas>
 </body>
