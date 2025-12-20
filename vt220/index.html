@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VT220 Terminal Emulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>VT220 Terminal Emulator</h1>
+            <div class="controls">
+                <button id="powerBtn">Power On</button>
+                <button id="resetBtn">Reset</button>
+                <button id="connectBtn">Connect PTY</button>
+                <input type="file" id="romFile" accept=".bin,.rom" style="display: none;">
+                <button id="loadRomBtn">Load ROM</button>
+                <span id="status">Ready</span>
+            </div>
+        </div>
+        <div class="terminal-wrapper">
+            <canvas id="terminal" width="800" height="480"></canvas>
+        </div>
+        <div class="info">
+            <p>VT220 Terminal Emulator with 6502 CPU</p>
+            <p>This emulator runs the authentic VT220 ROM and can connect to a PTY on the host via WebSocket.</p>
+            <p>Load a VT220 ROM file to begin. Default connection: ws://localhost:8080/pty</p>
+        </div>
+    </div>
+    <script src="cpu6502.js"></script>
+    <script src="vt220.js"></script>
+    <script src="display.js"></script>
+    <script src="keyboard.js"></script>
+    <script src="pty-client.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
