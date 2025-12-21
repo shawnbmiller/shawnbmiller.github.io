@@ -46,10 +46,11 @@ class VT220Display {
     
     renderCursor() {
         // Only render the cursor area for better performance
-        const x = this.cursorX * this.charWidth;
-        const y = this.cursorY * this.charHeight;
+        const state = this.vt220.getDisplayState();
+        const x = state.cursorX * this.charWidth;
+        const y = state.cursorY * this.charHeight;
         
-        if (this.cursorBlinkState && this.cursorVisible) {
+        if (this.cursorBlinkState && state.cursorVisible) {
             this.ctx.fillStyle = '#00ff00';
             this.ctx.fillRect(x, y + this.charHeight - 2, this.charWidth, 2);
         } else {
