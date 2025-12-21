@@ -41,6 +41,7 @@ function setupUI() {
     const resetBtn = document.getElementById('resetBtn');
     const connectBtn = document.getElementById('connectBtn');
     const loadRomBtn = document.getElementById('loadRomBtn');
+    const testRomBtn = document.getElementById('testRomBtn');
     const romFile = document.getElementById('romFile');
     
     // Power button
@@ -90,6 +91,11 @@ function setupUI() {
     // Load ROM button
     loadRomBtn.addEventListener('click', () => {
         romFile.click();
+    });
+    
+    // Test ROM button
+    testRomBtn.addEventListener('click', () => {
+        createTestROM();
     });
     
     // ROM file input
@@ -181,7 +187,7 @@ function createTestROM() {
     // Infinite loop
     // JMP $8000
     testROM[pc++] = 0x4C;
-    testROM[pc++] = 0x17;
+    testROM[pc++] = 0x00;
     testROM[pc++] = 0x80;
     
     // Reset vector at 0x7FFC (0xFFFC in memory)

@@ -36,6 +36,10 @@ class VT220 {
         // ROM loaded flag
         this.romLoaded = false;
         
+        // NVRAM save debouncing
+        this.nvramDirty = false;
+        this.nvramSaveTimer = null;
+        
         this.setupMemoryMap();
     }
     
@@ -100,7 +104,7 @@ class VT220 {
         
         this.cpu.registerWriteHandler(0x4000, 0x40FF, (addr, value) => {
             this.nvram[addr - 0x4000] = value;
-            this.saveNVRAM();
+            this.scheduleNVRAMSave();
         });
     }
     
@@ -177,6 +181,20 @@ class VT220 {
     }
     
     // NVRAM persistence
+    scheduleNVRAMSave() {
+        this.nvramDirty = true;
+        
+        // Debounce: save after 1 second of no writes
+        if (this.nvramSaveTimer) {
+            clearTimeout(this.nvramSaveTimer);
+        }
+        
+        this.nvramSaveTimer = setTimeout(() => {
+            this.saveNVRAM();
+            this.nvramDirty = false;
+        }, 1000);
+    }
+    
     saveNVRAM() {
         try {
             localStorage.setItem('vt220_nvram', JSON.stringify(Array.from(this.nvram)));

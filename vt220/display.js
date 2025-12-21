@@ -14,6 +14,9 @@ class VT220Display {
         this.cols = 80;
         this.rows = 24;
         
+        // Constants
+        this.SPACE_CHAR = 0x20;
+        
         // Update canvas size
         this.canvas.width = this.cols * this.charWidth;
         this.canvas.height = this.rows * this.charHeight;
@@ -37,8 +40,23 @@ class VT220Display {
     startCursorBlink() {
         this.cursorBlinkInterval = setInterval(() => {
             this.cursorBlinkState = !this.cursorBlinkState;
-            this.render();
+            this.renderCursor();
         }, 500);
+    }
+    
+    renderCursor() {
+        // Only render the cursor area for better performance
+        const x = this.cursorX * this.charWidth;
+        const y = this.cursorY * this.charHeight;
+        
+        if (this.cursorBlinkState && this.cursorVisible) {
+            this.ctx.fillStyle = '#00ff00';
+            this.ctx.fillRect(x, y + this.charHeight - 2, this.charWidth, 2);
+        } else {
+            // Clear cursor area
+            this.ctx.fillStyle = '#000000';
+            this.ctx.fillRect(x, y + this.charHeight - 2, this.charWidth, 2);
+        }
     }
     
     stopCursorBlink() {
@@ -64,7 +82,7 @@ class VT220Display {
                 let charCode = state.videoRAM[index];
                 
                 // Skip spaces for efficiency
-                if (charCode === 0x20) continue;
+                if (charCode === this.SPACE_CHAR) continue;
                 
                 // Convert to character
                 let char = String.fromCharCode(charCode);

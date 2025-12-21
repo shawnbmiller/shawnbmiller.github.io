@@ -213,8 +213,8 @@ class CPU6502 {
                 break;
                 
             default:
-                // For unimplemented opcodes, just advance
-                console.warn(`Unimplemented opcode: 0x${opcode.toString(16).padStart(2, '0')} at PC: 0x${(this.PC-1).toString(16).padStart(4, '0')}`);
+                // For unimplemented opcodes, just advance silently
+                // (logging here would severely impact performance)
                 this.cycles += 2;
                 break;
         }
