@@ -1,55 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shawn Miller</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-  </head>
 
-  <body>
-    <div class="container">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shawn Miller - Personal Projects</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    .quantico-regular {
+      font-family: "Quantico", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .quantico-bold {
+      font-family: "Quantico", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    .quantico-regular-italic {
+      font-family: "Quantico", sans-serif;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .quantico-bold-italic {
+      font-family: "Quantico", sans-serif;
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    body {
+      background-color: #000000;
+      color: #FFBF00;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .content-wrapper {
+      flex-grow: 1;
+    }
+
+    .hero {
+      background-color: #000000;
+      color: #FFBF00;
+      padding: 4rem 0;
+      text-align: center;
+      border-bottom: 2px solid #FFBF00;
+    }
+
+    .hero h1 {
+      text-shadow: 0 0 5px #FFBF00;
+    }
+
+    .container {
+      max-width: 1200px;
+    }
+
+    .card {
+      background-color: #111111;
+      border: 1px solid #FFBF00;
+      color: #FFBF00;
+      border-radius: 0;
+    }
+
+    .card:hover {
+      box-shadow: -4px 4px 0 #FFBF00, -4px -4px 0 #FFBF00, 4px 4px 0 #FFBF00, 4px -4px 0 #FFBF00;
+      transform: none;
+    }
+
+    .card-title {
+      color: #FFBF00;
+    }
+
+    .card-text {
+      color: #FFBF00;
+    }
+
+    .btn-primary {
+      background-color: #FFBF00;
+      border-color: #FFBF00;
+      color: #000000;
+      border-radius: 0;
+    }
+
+    .btn-primary:hover {
+      background-color: #E6A800;
+      border-color: #E6A800;
+    }
+
+    footer {
+      background-color: #111111;
+      color: #FFBF00;
+      border-top: 2px solid #FFBF00;
+    }
+
+    /* Add some retro scan lines effect */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(0deg,
+          transparent,
+          transparent 1px,
+          rgba(255, 191, 0, 0.1) 1px,
+          rgba(255, 191, 0, 0.1) 2px);
+      pointer-events: none;
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body class="quantico-regular">
+  <div class="content-wrapper">
+    <div class="hero">
+      <div class="container">
+        <h1 class="display-4">Shawn Miller</h1>
+        <p class="lead">Personal Project Demos</p>
+      </div>
+    </div>
+
+    <div class="container my-5">
       <div class="row">
-        <div class="col-4">
-          <h1>Shawn Miller</h1>
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">The Way</h5>
+              <p class="card-text">A personal reflection or journey page.</p>
+              <a href="theway.html" class="btn btn-primary mt-auto">View Project</a>
+            </div>
+          </div>
         </div>
-
-        <div class="col-8">
-          <div class="list-group">
-            <a
-              href="theway.html"
-              class="list-group-item list-group-item-action"
-            >
-              The Way
-            </a>
-            <a
-              href="falldown/index.html"
-              class="list-group-item list-group-item-action"
-            >
-              Fall Down
-            </a>
-            <a href="videopoker/" class="list-group-item list-group-item-action"
-              >Video Poker</a
-            >
-            <a
-              href="vt220/index.html"
-              class="list-group-item list-group-item-action"
-            >
-              VT220 Terminal Emulator
-            </a>
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Fall Down</h5>
+              <p class="card-text">An interactive falling animation demo.</p>
+              <a href="falldown/index.html" class="btn btn-primary mt-auto">View Project</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Video Poker</h5>
+              <p class="card-text">A classic video poker game simulation.</p>
+              <a href="videopoker/" class="btn btn-primary mt-auto">View Project</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Laminate Flooring Layout</h5>
+              <p class="card-text">A tool for planning laminate flooring layouts.</p>
+              <a href="laminateflooringlayout/" class="btn btn-primary mt-auto">View Project</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+      <p>&copy; 2026 Shawn Miller. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
